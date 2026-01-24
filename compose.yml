@@ -1,0 +1,25 @@
+services:
+  hqplayer:
+    image: hqplayer:5.16.1
+    container_name: hqplayer
+    network_mode: host
+    dns:
+      - 1.1.1.1
+    volumes:
+      - hqplayer-home:/var/lib/hqplayer/home
+      - hqplayer-data:/etc/hqplayer
+    restart: unless-stopped
+    devices:
+      - "/dev/snd:/dev/snd"
+      - "/dev/bus/usb:/dev/bus/usb"
+    cap_add:
+      - SYS_NICE
+      - SYS_RESOURCE
+    security_opt:
+      - seccomp:unconfined
+
+volumes:
+  hqplayer-home:
+    name: hqplayer-home
+  hqplayer-data:
+    name: hqplayer-data
