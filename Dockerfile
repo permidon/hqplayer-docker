@@ -2,7 +2,7 @@ FROM ubuntu:noble
 
 ENV GMPRIS_VERSION="2.2.1-12"
 ENV LIBGUPNP_VERSION="1.6-0_1.6.6-2"
-ENV HQPLAYERD_VERSION="5.16.1-45"
+ENV HQPLAYERD_VERSION="5.17.2-48"
 
 RUN apt update \
   && apt install -y curl udev sudo \
@@ -21,5 +21,7 @@ RUN apt update \
 RUN hqplayerd -s hqplayer hqplayer
 
 ENV HOME="/var/lib/hqplayer/home"
+
+EXPOSE 8088
 
 ENTRYPOINT ["/usr/bin/hqplayerd"]

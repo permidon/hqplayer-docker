@@ -1,6 +1,6 @@
 services:
   hqplayer:
-    image: hqplayer:5.16.1
+    image: hqplayer:5.17.2
     container_name: hqplayer
     network_mode: host
     dns:
